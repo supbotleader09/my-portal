@@ -155,6 +155,7 @@
                 padding: 10px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -170,69 +171,8 @@
                 <option value="">Select District</option>
                 <option value="Dhaka">ঢাকা</option>
                 <option value="Chattogram">চট্টগ্রাম</option>
-                <option value="Khulna">খুলনা </option>
-<option value="Rajshahi">রাজশাহী</option>
-<option value="Barishal">বরিশাল</option>
-<option value="Sylhet">সিলেট</option>
-<option value="Rangpur">রংপুর</option>
-<option value="Mymensingh">ময়মনসিংহ</option>
-<option value="Jashore">যশোর</option>
-<option value="Tangail">টাঙ্গাইল</option>
-<option value="Narsingdi">নরসিংদী</option>
-<option value="Gazipur">গাজীপুর</option>
-<option value="Brahmanbaria">ব্রাহ্মণবাড়িয়া</option>
-<option value="Narayanganj">নারায়ণগঞ্জ</option>
-<option value="Cumilla">কুমিল্লা</option>
-<option value="Noakhali">নোয়াখালী</option>
-<option value="Meherpur">মেহেরপুর</option>
-<option value="Chuadanga">চুয়াডাঙ্গা</option>
-<option value="Bhola">ভোলা</option>
-<option value="Satkhira">সাতক্ষীরা</option>
-<option value="Moulvibazar">মৌলভীবাজার</option>
-<option value="Shariatpur">শরীয়তপুর</option>
-<option value="Manikganj">মানিকগঞ্জ</option>
-<option value="Sherpur">শেরপুর</option>
-<option value="Cox's Bazar">কক্সবাজার</option>
-<option value="Habiganj">হবিগঞ্জ</option>
-<option value="Jamuna">জামুনা</option>
-<option value="Bogra">বগুড়া</option>
-<option value="Faridpur">ফরিদপুর</option>
-<option value="Kurigram">কুড়িগ্রাম</option>
-<option value="Gopalganj">গোপালগঞ্জ</option>
-<option value="Kishoreganj">কিশোরগঞ্জ</option>
-<option value="Lakshmipur">লক্ষ্মীপুর</option>
-<option value="Pabna">পাবনা</option>
-<option value="Panchagarh">পঞ্চগড়</option>
-<option value="Rangamati">রাঙ্গামাটি</option>
-<option value="Naogaon">নওগাঁ</option>
-<option value="Netrakona">নেত্রকোনা</option>
-<option value="Rajbari">রাজবাড়ী</option>
-<option value="Nilphamari">নীলফামারী</option>
-<option value="Patuakhali">পটুয়াখালী</option>
-<option value="Chandpur">চাঁদপুর</option>
-<option value="Thakurgaon">ঠাকুরগাঁও</option>
-<option value="Khagrachari">খাগড়াছড়ি</option>
-<option value="Kushtia">কুষ্টিয়া</option>
-<option value="Magura">মাগুরা</option>
-<option value="Manikganj">মানিকগঞ্জ</option>
-<option value="Moulvibazar">মৌলভীবাজার</option>
-<option value="Munshiganj">মুন্সিগঞ্জ</option>
-<option value="Netrokona">নেত্রকোনা</option>
-<option value="Panchagarh">পঞ্চগড়</option>
-<option value="Rajshahi">রাজশাহী</option>
-<option value="Rangpur">রংপুর</option>
-<option value="Shariatpur">শরীয়তপুর</option>
-<option value="Sherpur">শেরপুর</option>
-<option value="Tangail">টাঙ্গাইল</option>
-<option value="Thakurgaon">ঠাকুরগাঁও</option>
-<option value="Madaripur">মাদারীপুর</option>
-<option value="Kishoreganj">কিশোরগঞ্জ</option>
-<option value="Patuakhali">পটুয়াখালী</option>
-<option value="Gopalganj">গোপালগঞ্জ</option>
-<option value="Narsingdi">নরসিংদী</option>
-<option value="Mymensingh">ময়মনসিংহ</option>
-<option value="Sylhet">সিলেট</option> </select>
-
+                <option value="Khulna">খুলনা</option>
+            </select>
             
             <input type="text" name="mobile" id="mobile" placeholder="Mobile Number" required>
             <input type="email" name="email" id="email" placeholder="Email Address" required>
@@ -241,6 +181,7 @@
             <button type="button" id="sendOtpBtn">Send OTP</button>
             <p class="countdown" id="countdown" style="display:none;">10</p>
             <p id="pleaseWait" style="display:none;">Please wait for 10 seconds...</p>
+            <p id="errorMessage" style="color:red; display:none;">Unavailable - This mobile number or email is already used!</p>
 
             <!-- OTP Box -->
             <div class="otp-box" id="otpBox">
@@ -263,11 +204,16 @@
     <script>
         let generatedOtp;
         let countdownTime = 10;
+        let usedEmails = new Set(); // To store used email addresses
+        let usedNumbers = new Set(); // To store used mobile numbers
 
         document.getElementById("sendOtpBtn").addEventListener("click", function () {
             const email = document.getElementById("email").value;
-            if (!email) {
-                alert("Please enter a valid email!");
+            const mobile = document.getElementById("mobile").value;
+            
+            // Check if email or mobile is already used
+            if (usedEmails.has(email) || usedNumbers.has(mobile)) {
+                document.getElementById("errorMessage").style.display = "block";
                 return;
             }
 
@@ -300,6 +246,13 @@
             if (otpInput == generatedOtp) {
                 alert("OTP Verified Successfully!");
 
+                // Save the used email and mobile to prevent reuse
+                const email = document.getElementById("email").value;
+                const mobile = document.getElementById("mobile").value;
+
+                usedEmails.add(email);
+                usedNumbers.add(mobile);
+
                 const referralCode = Math.random().toString(36).substring(2, 11).toUpperCase();
                 document.getElementById("randomCode").textContent = referralCode;
                 document.getElementById("referralCode").style.display = "block";
@@ -322,4 +275,4 @@
         };
     </script>
 </body>
-  </html>
+    </html>
