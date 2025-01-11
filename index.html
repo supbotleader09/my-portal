@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Income 2K25</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            color: #333;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
+            opacity: 0.6;
+            z-index: -1;
+            animation: glowing 5s infinite ease-in-out;
+        }
+
+        @keyframes glowing {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.05) translate(10px, 10px); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #007BFF;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            background-color: #f4f4f4;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, button:focus {
+            outline: none;
+            border: 1px solid #ff7e5f;
+            box-shadow: 0 0 8px rgba(255, 126, 95, 0.6);
+            background-color: white;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            color: red;
+        }
+
+        .otp-box, .referral-code {
+            display: none;
+        }
+
+        .powered-by {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .powered-by span {
+            color: #ff7e5f;
+        }
+
+        .submit-button {
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Mobile-Friendly Adjustments */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+                width: 90%;
+            }
+
+            input, select, button {
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            .countdown {
+                font-size: 1.5rem;
+            }
+
+            .submit-button {
+                font-size: 1.1rem;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://assets.onecompiler.app/42weepxyg/435qjgjah/online-business-success-concept_1308-173262.webp" alt="Business Image">
+        <h1>Referral Income 2K25</h1>
+        
+        <form id="referralForm" action="https://formspree.io/f/meoovzpg" method="POST">
+            <input type="text" name="name" id="name" placeholder="Your Name" required>
+            
+            <select name="district" id="district" required>
+                <option value="">Select District</option>
+                <option value="Dhaka">ঢাকা</option>
+                <option value="Chattogram">চট্টগ্রাম</option>
+                <option value="Khulna">খুলনা </option>
+<option value="Rajshahi">রাজশাহী</option>
+<option value="Barishal">বরিশাল</option>
+<option value="Sylhet">সিলেট</option>
+<option value="Rangpur">রংপুর</option>
+<option value="Mymensingh">ময়মনসিংহ</option>
+<option value="Jashore">যশোর</option>
+<option value="Tangail">টাঙ্গাইল</option>
+<option value="Narsingdi">নরসিংদী</option>
+<option value="Gazipur">গাজীপুর</option>
+<option value="Brahmanbaria">ব্রাহ্মণবাড়িয়া</option>
+<option value="Narayanganj">নারায়ণগঞ্জ</option>
+<option value="Cumilla">কুমিল্লা</option>
+<option value="Noakhali">নোয়াখালী</option>
+<option value="Meherpur">মেহেরপুর</option>
+<option value="Chuadanga">চুয়াডাঙ্গা</option>
+<option value="Bhola">ভোলা</option>
+<option value="Satkhira">সাতক্ষীরা</option>
+<option value="Moulvibazar">মৌলভীবাজার</option>
+<option value="Shariatpur">শরীয়তপুর</option>
+<option value="Manikganj">মানিকগঞ্জ</option>
+<option value="Sherpur">শেরপুর</option>
+<option value="Cox's Bazar">কক্সবাজার</option>
+<option value="Habiganj">হবিগঞ্জ</option>
+<option value="Jamuna">জামুনা</option>
+<option value="Bogra">বগুড়া</option>
+<option value="Faridpur">ফরিদপুর</option>
+<option value="Kurigram">কুড়িগ্রাম</option>
+<option value="Gopalganj">গোপালগঞ্জ</option>
+<option value="Kishoreganj">কিশোরগঞ্জ</option>
+<option value="Lakshmipur">লক্ষ্মীপুর</option>
+<option value="Pabna">পাবনা</option>
+<option value="Panchagarh">পঞ্চগড়</option>
+<option value="Rangamati">রাঙ্গামাটি</option>
+<option value="Naogaon">নওগাঁ</option>
+<option value="Netrakona">নেত্রকোনা</option>
+<option value="Rajbari">রাজবাড়ী</option>
+<option value="Nilphamari">নীলফামারী</option>
+<option value="Patuakhali">পটুয়াখালী</option>
+<option value="Chandpur">চাঁদপুর</option>
+<option value="Thakurgaon">ঠাকুরগাঁও</option>
+<option value="Khagrachari">খাগড়াছড়ি</option>
+<option value="Kushtia">কুষ্টিয়া</option>
+<option value="Magura">মাগুরা</option>
+<option value="Manikganj">মানিকগঞ্জ</option>
+<option value="Moulvibazar">মৌলভীবাজার</option>
+<option value="Munshiganj">মুন্সিগঞ্জ</option>
+<option value="Netrokona">নেত্রকোনা</option>
+<option value="Panchagarh">পঞ্চগড়</option>
+<option value="Rajshahi">রাজশাহী</option>
+<option value="Rangpur">রংপুর</option>
+<option value="Shariatpur">শরীয়তপুর</option>
+<option value="Sherpur">শেরপুর</option>
+<option value="Tangail">টাঙ্গাইল</option>
+<option value="Thakurgaon">ঠাকুরগাঁও</option>
+<option value="Madaripur">মাদারীপুর</option>
+<option value="Kishoreganj">কিশোরগঞ্জ</option>
+<option value="Patuakhali">পটুয়াখালী</option>
+<option value="Gopalganj">গোপালগঞ্জ</option>
+<option value="Narsingdi">নরসিংদী</option>
+<option value="Mymensingh">ময়মনসিংহ</option>
+<option value="Sylhet">সিলেট</option> </select>
+
+            
+            <input type="text" name="mobile" id="mobile" placeholder="Mobile Number" required>
+            <input type="email" name="email" id="email" placeholder="Email Address" required>
+            
+            <!-- Send OTP Button -->
+            <button type="button" id="sendOtpBtn">Send OTP</button>
+            <p class="countdown" id="countdown" style="display:none;">10</p>
+            <p id="pleaseWait" style="display:none;">Please wait for 10 seconds...</p>
+
+            <!-- OTP Box -->
+            <div class="otp-box" id="otpBox">
+                <p>Your OTP: <strong id="otpCode"></strong></p>
+                <input type="text" id="otpInput" placeholder="Enter OTP">
+                <button type="button" id="verifyOtpBtn">Verify OTP</button>
+            </div>
+
+            <!-- Referral Code -->
+            <div class="referral-code" id="referralCode">
+                <p>Your Referral Code: <strong id="randomCode"></strong></p>
+                <button type="button" onclick="copyReferral()">Copy Code</button>
+            </div>
+            
+            <p class="powered-by">Powered By <span>X-SHAAN</span></p>
+            <button type="submit" id="submitButton" class="submit-button">Submit Form</button>
+        </form>
+    </div>
+
+    <script>
+        let generatedOtp;
+        let countdownTime = 10;
+
+        document.getElementById("sendOtpBtn").addEventListener("click", function () {
+            const email = document.getElementById("email").value;
+            if (!email) {
+                alert("Please enter a valid email!");
+                return;
+            }
+
+            document.getElementById("sendOtpBtn").disabled = true;
+            document.getElementById("countdown").style.display = "block";
+            document.getElementById("pleaseWait").style.display = "block";
+            startCountdown();
+        });
+
+        function startCountdown() {
+            let countdown = countdownTime;
+            const countdownInterval = setInterval(function () {
+                document.getElementById("countdown").textContent = countdown;
+                countdown--;
+
+                if (countdown < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("pleaseWait").textContent = "OTP Generated Successfully!";
+                    
+                    generatedOtp = Math.floor(1000000 + Math.random() * 9000000);
+                    document.getElementById("otpCode").textContent = generatedOtp;
+                    document.getElementById("otpBox").style.display = "block";
+                    document.getElementById("sendOtpBtn").disabled = false;
+                }
+            }, 1000);
+        }
+
+        document.getElementById("verifyOtpBtn").addEventListener("click", function () {
+            const otpInput = document.getElementById("otpInput").value;
+            if (otpInput == generatedOtp) {
+                alert("OTP Verified Successfully!");
+
+                const referralCode = Math.random().toString(36).substring(2, 11).toUpperCase();
+                document.getElementById("randomCode").textContent = referralCode;
+                document.getElementById("referralCode").style.display = "block";
+            } else {
+                alert("Invalid OTP! Please try again.");
+            }
+        });
+
+        function copyReferral() {
+            const referralCode = document.getElementById("randomCode").textContent;
+            navigator.clipboard.writeText(referralCode);
+            alert("Referral Code Copied!");
+        }
+
+        document.getElementById("referralForm").onsubmit = function (e) {
+            if (!document.getElementById("randomCode").textContent) {
+                alert("Please verify OTP before submitting the form.");
+                e.preventDefault();
+            }
+        };
+    </script>
+</body>
+  </html>
