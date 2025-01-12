@@ -242,86 +242,88 @@
         </form>
     </div>
 
-    <script>
-        let generatedOtp;
-        let countdownTime = 10;
-        let usedEmails = new Set(); // To store used email addresses
-        let usedNumbers = new Set(); // To store used mobile numbers
-        let serialCooldown = false;
+<script>
+    let generatedOtp;
+    let countdownTime = 10;
+    let usedEmails = new Set(); 
+    let usedNumbers = new Set(); 
+    let serialCooldown = false;
 
-        document.getElementById("sendOtpBtn").addEventListener("click", function () {
-            const email = document.getElementById("email").value;
-            const mobile = document.getElementById("mobile").value;
-            
-            // Check if email or mobile is already used
-            if (usedEmails.has(email) || usedNumbers.has(mobile)) {
-                document.getElementById("errorMessage").style.display = "block";
-                return;
-            }
-
-            document.getElementById("sendOtpBtn").disabled = true;
-            document.getElementById("countdown").style.display = "block";
-            document.getElementById("pleaseWait").style.display = "block";
-            startCountdown();
-        });
-
-        function startCountdown() {
-            let countdown = countdownTime;
-            const countdownInterval = setInterval(function () {
-                document.getElementById("countdown").textContent = countdown;
-                countdown--;
-
-                if (countdown < 0) {
-                    clearInterval(countdownInterval);
-                    document.getElementById("pleaseWait").textContent = "OTP Generated Successfully!";
-                    
-                    generatedOtp = Math.floor(1000000 + Math.random() * 9000000);
-                    document.getElementById("otpCode").textContent = generatedOtp;
-                    document.getElementById("otpBox").style.display = "block";
-                    document.getElementById("sendOtpBtn").disabled = false;
-                }
-            }, 1000);
+    document.getElementById("sendOtpBtn").addEventListener("click", function () {
+        const email = document.getElementById("email").value;
+        const mobile = document.getElementById("mobile").value;
+        
+        if (!email || !mobile) {
+            alert("Please enter both email and mobile number.");
+            return;
         }
 
-        document.getElementById("verifyOtpBtn").addEventListener("click", function () {
-            const otpInput = document.getElementById("otpInput").value;
-            if (otpInput == generatedOtp) {
-                document.getElementById("referralCode").style.display = "block";
-                document.getElementById("randomCode").textContent = Math.floor(100000 + Math.random() * 900000);
-                usedEmails.add(document.getElementById("email").value);
-                usedNumbers.add(document.getElementById("mobile").value);
-            } else {
-                alert("Invalid OTP");
-            }
-        });
-
-        document.getElementById("generateSerial").addEventListener("click", function () {
-            if (serialCooldown) {
-                document.getElementById("serialCooldown").style.display = "block";
-                return;
-            }
-
-            const serialNo = "SN" + Math.floor(100000 + Math.random() * 900000);
-            document.getElementById("serialDisplay").textContent = serialNo;
-            document.getElementById("serialNo").value = serialNo;
-
-            serialCooldown = true;
-            document.getElementById("serialCooldown").style.display = "block";
-
-            // Set cooldown for 30 seconds
-            setTimeout(function() {
-                serialCooldown = false;
-                document.getElementById("serialCooldown").style.display = "none";
-            }, 30000);
-        });
-
-        function copyReferral() {
-            const referralCode = document.getElementById("randomCode").textContent;
-            navigator.clipboard.writeText(referralCode).then(function() {
-                alert("Referral code copied!");
-            });
+        if (usedEmails.has(email) || usedNumbers.has(mobile)) {
+            document.getElementById("errorMessage").style.display = "block";
+            return;
         }
-    </script>
+
+        document.getElementById("sendOtpBtn").disabled = true;
+        document.getElementById("countdown").style.display = "block";
+        document.getElementById("pleaseWait").style.display = "block";
+        startCountdown();
+    });
+
+    function startCountdown() {
+        let countdown = countdownTime;
+        const countdownInterval = setInterval(function () {
+            document.getElementById("countdown").textContent = countdown;
+            countdown--;
+
+            if (countdown < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("pleaseWait").textContent = "OTP Generated Successfully!";
+                
+                generatedOtp = Math.floor(100000 + Math.random() * 900000);
+                document.getElementById("otpCode").textContent = generatedOtp;
+                document.getElementById("otpBox").style.display = "block";
+                document.getElementById("sendOtpBtn").disabled = false;
+            }
+        }, 1000);
+    }
+
+    document.getElementById("verifyOtpBtn").addEventListener("click", function () {
+        const otpInput = document.getElementById("otpInput").value;
+        if (otpInput == generatedOtp) {
+            document.getElementById("referralCode").style.display = "block";
+            document.getElementById("randomCode").textContent = Math.floor(100000 + Math.random() * 900000);
+            usedEmails.add(document.getElementById("email").value);
+            usedNumbers.add(document.getElementById("mobile").value);
+        } else {
+            alert("Invalid OTP");
+        }
+    });
+
+    document.getElementById("generateSerial").addEventListener("click", function () {
+        if (serialCooldown) {
+            alert("Please wait 1 minute before generating another serial number.");
+            return;
+        }
+
+        const serialNo = "SN" + Math.floor(100000 + Math.random() * 900000);
+        document.getElementById("serialDisplay").textContent = serialNo;
+        document.getElementById("serialNo").value = serialNo;
+
+        serialCooldown = true;
+
+        setTimeout(function () {
+            serialCooldown = false;
+            alert("You can generate a new serial number now.");
+        }, 60000); // 1 minute cooldown
+    });
+
+    function copyReferral() {
+        const referralCode = document.getElementById("randomCode").textContent;
+        navigator.clipboard.writeText(referralCode).then(function () {
+            alert("Referral code copied!");
+        });
+    }
+</script>
 
 </body>
 </html>
